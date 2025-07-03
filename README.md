@@ -19,3 +19,5 @@ Assurez-vous d'avoir Python installé, puis exécutez :
 
 ```bash
 python convertisseur.py
+
+print("merci")
