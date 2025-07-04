@@ -1,3 +1,4 @@
+import time
 print( "_____ CONVERTISSEUR MONNAIE _____ ")
 
 # 📊 Dictionnaire contenant les taux de change entre différentes devises
@@ -70,12 +71,16 @@ def demande_montant_conversion(monnaie_actuel , monnaie_echange):
                 break
         except ValueError:
                 print(f'Veuillez entrer un **nombre valide positif** svp 🚨')
+    print('Patienter svp',end='')
+    for i in range(5):
+        print('.',end='',flush=True)
+        time.sleep(1) 
 
     # 💱 Calcul de la conversion avec le taux correspondant
         
     taux_echange = devise[monnaie_actuel][monnaie_echange]
     resultat =  montant_float * taux_echange 
-    print(f'{montant}{monnaie_actuel} ----> {(resultat):.0F}{monnaie_echange} ')
+    print(f'\n{montant}{monnaie_actuel} ----> {(resultat):.0F}{monnaie_echange} ')
 
     # Propose de quitter ou de refaire une conversion
     quitter_convertisseur()
@@ -96,5 +101,6 @@ def quitter_convertisseur():
         else:
              demande_devise()  # Redémarre le programme
          
-demande_devise()
 
+
+demande_devise()
